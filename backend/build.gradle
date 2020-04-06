@@ -1,0 +1,22 @@
+apply plugin: 'application'
+
+
+mainClassName = 'com.cormicopiastudios.backendtemplate.ServerLauncher'
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+task dist(type: Jar) {
+    manifest {
+        attributes 'Main-Class': project.mainClassName
+    }
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"

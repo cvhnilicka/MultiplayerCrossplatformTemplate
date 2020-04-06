@@ -10,4 +10,13 @@ javadoc {
     title = 'Ashley Entity System API'
 }
 
+project(":ashley") {
 
+    ext {
+        gdxVersion = '1.9.10'
+    }
+
+    dependencies {
+        implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+    }
+}

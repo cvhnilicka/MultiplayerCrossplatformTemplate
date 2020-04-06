@@ -132,7 +132,18 @@ project(":core") {
         
     }
 }
+project(":backend") {
+    apply plugin: "java"
 
+    dependencies {
+        implementation project(":shared")
+        implementation "io.vertx:vertx-core:3.6.2"
+        implementation "com.github.czyzby:gdx-websocket:1.9.1.9.6"
+        implementation "com.github.czyzby:gdx-websocket-serialization:1.9.1.9.6"
+        implementation 'com.google.code.gson:gson:2.8.6'
+
+    }
+}
 project(":shared") {
     apply plugin: "java"
 
