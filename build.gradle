@@ -49,6 +49,9 @@ project(":desktop") {
         api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+        implementation "com.github.czyzby:gdx-websocket-common:1.9.1.9.6"
+        implementation project(':ashley')
+        implementation project(':shared')
         
     }
 }
@@ -72,6 +75,8 @@ project(":android") {
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-arm64-v8a"
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-x86"
         natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-x86_64"
+        implementation project(':ashley')
+        implementation project(':shared')
         
     }
 }
@@ -105,6 +110,11 @@ project(":html") {
         api "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
         api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion:sources"
         api "com.badlogicgames.gdx:gdx-box2d-gwt:$gdxVersion:sources"
+        implementation "com.github.czyzby:gdx-websocket-gwt:1.9.1.9.6"
+        implementation "com.github.czyzby:gdx-websocket-gwt:1.9.1.9.6:sources"
+        implementation "com.github.czyzby:gdx-websocket:1.9.1.9.6:sources"
+        implementation project(':ashley')
+        implementation project(':shared')
         
     }
 }
@@ -116,6 +126,21 @@ project(":core") {
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+        implementation "com.github.czyzby:gdx-websocket:1.9.1.9.6"
+        implementation project(':ashley')
+        implementation project(':shared')
         
+    }
+}
+
+project(":shared") {
+    apply plugin: "java"
+
+    dependencies {
+        implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+        implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+        implementation "com.github.czyzby:gdx-websocket:1.9.1.9.6"
+        implementation "com.github.czyzby:gdx-websocket-serialization:1.9.1.9.6"
+
     }
 }
